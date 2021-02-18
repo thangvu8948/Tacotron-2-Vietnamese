@@ -1,0 +1,3 @@
+Xin chào|tacotron_output/eval\mel-batch_0_sentence_0.npy|<no_g>
+Cậu tên gì|tacotron_output/eval\mel-batch_1_sentence_0.npy|<no_g>
+Rất hân hạnh được làm que|tacotron_output/eval\mel-batch_2_sentence_0.npy|<no_g>
