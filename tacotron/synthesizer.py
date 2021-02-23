@@ -230,7 +230,7 @@ class Synthesizer:
 					plot.plot_spectrogram(linears[i], os.path.join(log_dir, 'plots/linear-{}.png'.format(basenames[i])),
 						title='{}'.format(texts[i]), split_title=True, auto_aspect=True)
 
-		return saved_mels_paths, speaker_ids
+		return saved_mels_paths, speaker_ids, wav
 
 	def _round_up(self, x, multiple):
 		remainder = x % multiple

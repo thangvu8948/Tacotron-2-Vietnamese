@@ -42,7 +42,17 @@ def synthesize(args, hparams, taco_checkpoint, wave_checkpoint, sentences):
 	#wavenet_synthesize(args, hparams, wave_checkpoint)
 	log('Tacotron-2 TTS synthesis complete!')
 
-
+def synthesizeColab(args, hparams, taco_checkpoint, wave_checkpoint, sentences):
+	log('Running End-to-End TTS Evaluation. Model: {}'.format(args.name or args.model))
+	log('Synthesizing mel-spectrograms from text..')
+	wavenet_in_dir = tacotron_synthesize(args, hparams, taco_checkpoint, sentences)
+	#Delete Tacotron model from graph
+	tf.reset_default_graph()
+	#Sleep 1/2 second to let previous graph close and avoid error messages while Wavenet is synthesizing
+	sleep(0.5)
+	#log('Synthesizing audio from mel-spectrograms.. (This may take a while)')
+	#wavenet_synthesize(args, hparams, wave_checkpoint)
+	log('Tacotron-2 TTS synthesis complete!')
 
 def main():
 	accepted_modes = ['eval', 'synthesis', 'live']

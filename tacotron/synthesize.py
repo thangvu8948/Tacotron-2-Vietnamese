@@ -64,9 +64,9 @@ def run_eval(args, checkpoint_path, output_dir, hparams, sentences):
 		for i, texts in enumerate(tqdm(sentences)):
 			start = time.time()
 			basenames = ['batch_{}_sentence_{}'.format(i, j) for j in range(len(texts))]
-			mel_filenames, speaker_ids = synth.synthesize(texts, basenames, eval_dir, log_dir, None)
+			mel_filenames = synth.synthesize(texts, basenames, eval_dir, log_dir, None)
 
-			for elems in zip(texts, mel_filenames, speaker_ids):
+			for elems in zip(texts, mel_filenames):
 				file.write('|'.join([str(x) for x in elems]) + '\n')
 	log('synthesized mel spectrograms at {}'.format(eval_dir))
 	return eval_dir
