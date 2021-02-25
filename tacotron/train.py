@@ -334,7 +334,7 @@ def train(log_dir, args, hparams):
 
 						#save predicted linear spectrogram to disk (debug)
 						linear_filename = 'linear-prediction-step-{}.npy'.format(step)
-						np.save(os.path.join(linear_dir, linear_filename), linear_prediction.T, allow_pickle=False)
+						np.save(os.path.join(linear_dir, linear_filename), linear_prediction.T, allow_pickle=True)
 
 						#save griffin lim inverted wav for debug (linear -> wav)
 						if hparams.GL_on_GPU:
@@ -360,7 +360,7 @@ def train(log_dir, args, hparams):
 
 					#save predicted mel spectrogram to disk (debug)
 					mel_filename = 'mel-prediction-step-{}.npy'.format(step)
-					np.save(os.path.join(mel_dir, mel_filename), mel_prediction.T, allow_pickle=False)
+					np.save(os.path.join(mel_dir, mel_filename), mel_prediction.T, allow_pickle=True)
 
 					#save griffin lim inverted wav for debug (mel -> wav)
 					if hparams.GL_on_GPU:
